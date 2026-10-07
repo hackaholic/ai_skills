@@ -1,6 +1,6 @@
 # Token-Lean Full-Stack AI Skills
 
-A high-density, low-token AI skills suite for full-stack software development. Designed to deliver expert-level architecture, UI/UX, backend, engineering, security, testing, and peer review without burning excessive tokens.
+A high-density, low-token AI skills suite for full-stack software development and project workflow coordination. Designed to deliver expert-level architecture, UI/UX, backend, engineering, security, testing, and multi-agent coordination without burning excessive tokens.
 
 ---
 
@@ -12,17 +12,19 @@ Heavy agent frameworks and prompt stacks (like `pstack` and `upskill`) frequentl
 3. **Encourage multi-page ceremonial outputs** instead of actionable code diffs and decisions.
 
 This suite solves that through **Progressive Disclosure & Zero-Fluff Directives**:
-- **Tiny Discovery Footprint**: Frontmatter descriptions are kept under 25 words (~200 tokens total for the whole suite).
-- **Dense Imperative Instructions**: Each `SKILL.md` is strictly under 400 words, focusing purely on decisions, constraints, and deliverables.
+- **Tiny Discovery Footprint**: Frontmatter descriptions are kept under 25 words (~250 tokens total for the entire 10-skill suite).
+- **Dense Imperative Instructions**: Each `SKILL.md` is strictly 200–350 words, focusing purely on decisions, constraints, and deliverables.
 - **Reference Sharding**: Deep domain checklists (e.g., API security specs) live in standalone reference files loaded only when that domain is actively engaged.
 - **Strict Output Budgets**: Standardized compact formats (ADRs, component trees, DDL schemas, diffs, test matrices) minimize generation tokens.
 
 ---
 
-## Full-Stack Skill Roles
+## Full-Stack & Workflow Skills
 
 | Skill | Role | Key Deliverables & Responsibilities |
 | :--- | :--- | :--- |
+| **[`workflow-scaffold`](./workflow-scaffold/SKILL.md)** | Workflow Bootstrapper | Scaffolds the `work/` directory tree or migrates legacy TODO backlogs into structured work packages. |
+| **[`workflow-coordinator`](./workflow-coordinator/SKILL.md)** | Workflow & Handoffs | Manages task pickup, subtask contracts, multi-agent handoffs, and status tracking using `work/`. |
 | **[`architect`](./architect/SKILL.md)** | System Architect | Scope boundaries, domain decomposition, ADRs, subtask dependencies. |
 | **[`ui-designer`](./ui-designer/SKILL.md)** | UI/UX & Frontend | Design tokens, layout hierarchy, states (loading/empty/error), a11y, component tree. |
 | **[`backend-expert`](./backend-expert/SKILL.md)** | Backend & Database | Schema DDL, indexing, transactions, API contracts, caching, background jobs. |
@@ -34,31 +36,50 @@ This suite solves that through **Progressive Disclosure & Zero-Fluff Directives*
 
 ---
 
+## The `work/` Tree Architecture
+
+The workflow pattern (modeled after `crochet/work`) enforces modular, low-token context boundaries:
+
+```
+work/
+├── INDEX.md                     # Global router / Active work index (< 50 lines)
+├── TASK_TEMPLATE.md             # Subtask contract template with tests & security
+└── work-NNN-<slug>/             # Scoped work package
+    ├── README.md                # Objective, current state, architecture, done-when
+    ├── coordination.md          # Active owner, current handoff status, return protocol
+    ├── tasks.md                 # In Progress, Pending, Completed task lists
+    ├── decisions.md             # Architecture Decision Records (ADRs)
+    ├── notes.md                 # Evidence, verification outputs, environment notes
+    └── tasks/                   # Atomic, pickup-ready subtask contracts
+        ├── task-001-<slug>.md
+        └── ...
+```
+
+### Context Isolation Advantage
+Instead of dumping the entire repository history into the prompt, the agent only reads:
+1. `work/INDEX.md` (identifies active work)
+2. `work/work-NNN/coordination.md` and `tasks.md`
+3. The specific assigned contract in `work/work-NNN/tasks/task-XXX.md`.
+
+---
+
 ## Recommended Full-Stack Lifecycle Flow
 
 ```mermaid
-flowchart LR
-    A[Task / Feature] --> B(architect)
-    B --> C(ui-designer)
-    B --> D(backend-expert)
-    C --> E(engineer)
-    D --> E
-    E --> F(testcase-skill)
-    E --> G(security-validation)
-    F --> H(peer review)
-    G --> H
-    H --> I[Verified & Shipped]
+flowchart TD
+    A[Start / Convert Project] -->|workflow-scaffold| B[work/ Directory Tree]
+    B -->|workflow-coordinator| C[Pick Up / Scope Task]
+    C -->|architect| D[System Decomposition]
+    D -->|ui-designer| E[UI Tokens & States]
+    D -->|backend-expert| F[Schemas & Endpoints]
+    E --> G[engineer: Surgical Implementation]
+    F --> G
+    G -->|testcase-skill| H[Test Matrix Execution]
+    G -->|security-validation| I[Negative Security Checks]
+    H --> J[peer: Diff Code Review]
+    I --> J
+    J -->|workflow-coordinator| K[Return Handoff & Mark Completed]
 ```
-
-1. **Architecture (`architect`)**: Define scope, boundaries, and 3–5 atomic subtasks.
-2. **Specialized Design**:
-   - For UI/frontend tasks: Invoke **`ui-designer`** for components, tokens, and states.
-   - For backend/data tasks: Invoke **`backend-expert`** for schemas, endpoints, and concurrency.
-3. **Implementation (`engineer`)**: Apply surgical, minimal diffs meeting the specs.
-4. **Verification**:
-   - Run **`testcase-skill`** to execute the targeted test matrix.
-   - Run **`security-validation`** to verify negative security assertions.
-5. **Review (`peer`)**: Perform diff-focused code review before merging.
 
 ---
 
