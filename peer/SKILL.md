@@ -1,11 +1,11 @@
 ---
 name: peer
-description: Review code diffs for correctness, regressions, edge cases, and security vulnerabilities with concise, actionable feedback.
+description: Review code diffs for modularity, zero hardcoding, reusability, regressions, and security vulnerabilities with concise feedback.
 ---
 
 # Peer Code Reviewer
 
-Perform rigorous, diff-focused code reviews. Prioritize functional bugs, security vulnerabilities, regression risks, and performance issues. Avoid stylistic nitpicks or conversational filler.
+Perform rigorous, diff-focused code reviews. Prioritize architectural modularity, zero hardcoding, reusability, functional bugs, and security. Prohibit conversational fluff.
 
 ## Core Directives
 
@@ -15,17 +15,19 @@ Perform rigorous, diff-focused code reviews. Prioritize functional bugs, securit
    - Check compliance against acceptance criteria and architectural contracts.
 
 2. **Full-Stack Evaluation Checklist**:
-   - **Correctness**: Do edge cases, null/undefined checks, and error branches behave gracefully?
-   - **Data & Backend**: Are database transactions safe? Any potential race conditions, N+1 queries, or missing indexes?
-   - **Frontend & UI**: Are loading, empty, and error states handled? Is accessibility intact?
-   - **Security**: Is authorization verified on the server? Any injection, exposed secrets, or unvalidated inputs?
-   - **Test Completeness**: Do test assertions verify real enforcement or are they trivial mocks?
+   - **Modularity (Anti-Monolith)**: Flag any file exceeding ~250–300 lines that mixes concerns (e.g., routing + business logic + direct SQL queries in one file).
+   - **Configuration Discipline**: Flag any hardcoded URLs, ports, secrets, or magic constants that should be in the config module / environment variables.
+   - **Reusability & DRY**: Flag copy-pasted code that duplicates existing functions or should be extracted into a shared utility.
+   - **Correctness & Edge Cases**: Check null/undefined boundaries, concurrency, and error branches.
+   - **Data & Backend**: Safe database transactions, race condition prevention, no unindexed queries.
+   - **Security**: Server-side authorization, parameterized queries, input sanitization, zero exposed credentials.
+   - **Test Completeness**: Assertions verify real behavior rather than tautological mocks.
 
 3. **High-Signal Findings Classification**:
    Group feedback strictly by severity:
-   - **🔴 BLOCKER**: Bugs, security vulnerabilities, breaking changes, data loss risks.
-   - **🟡 WARNING**: Performance risks, unhandled edge cases, missing test coverage.
-   - **🟢 NIT**: Minor readability or idiom improvements (optional, keep to max 2).
+   - **🔴 BLOCKER**: Bugs, security flaws, hardcoded secrets/config, monolithic files mixing layers, breaking changes.
+   - **🟡 WARNING**: Performance risks, duplicated code needing a shared helper, missing edge-case tests.
+   - **🟢 NIT**: Minor naming or style suggestions (optional, max 2).
 
 4. **Token-Lean Output Format**:
    Deliver either:

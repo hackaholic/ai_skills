@@ -25,13 +25,13 @@ This suite solves that through **Progressive Disclosure & Zero-Fluff Directives*
 | :--- | :--- | :--- |
 | **[`workflow-scaffold`](./workflow-scaffold/SKILL.md)** | Workflow Bootstrapper | Scaffolds the `work/` directory tree or migrates legacy TODO backlogs into structured work packages. |
 | **[`workflow-coordinator`](./workflow-coordinator/SKILL.md)** | Workflow & Handoffs | Manages task pickup, subtask contracts, multi-agent handoffs, and status tracking using `work/`. |
-| **[`architect`](./architect/SKILL.md)** | System Architect | Scope boundaries, domain decomposition, ADRs, subtask dependencies. |
+| **[`architect`](./architect/SKILL.md)** | System Architect | System design selection & justification (explaining WHY), modular directory blueprints, ADRs, subtask dependencies. |
 | **[`ui-designer`](./ui-designer/SKILL.md)** | UI/UX & Frontend | Design tokens, layout hierarchy, states (loading/empty/error), a11y, component tree. |
-| **[`backend-expert`](./backend-expert/SKILL.md)** | Backend & Database | Schema DDL, indexing, transactions, API contracts, caching, background jobs. |
-| **[`engineer`](./engineer/SKILL.md)** | Full-Stack Implementation | Surgical code diffs, adhering to contracts, local build & regression verification. |
+| **[`backend-expert`](./backend-expert/SKILL.md)** | Backend & Database | Layered architecture (controller/service/repo), typed config/12-factor, schemas, ACID transactions, API contracts. |
+| **[`engineer`](./engineer/SKILL.md)** | Full-Stack Implementation | Anti-monolith modular code, zero-hardcoding (YAML/env vars), code reuse/DRY patterns, surgical diffs. |
 | **[`testcase-skill`](./testcase-skill/SKILL.md)** | Test Engineer | Compact traceable test matrices (happy path, boundary, failure, security). |
 | **[`security-validation`](./security-validation/SKILL.md)** | Security Expert | Threat modeling, OWASP triage, authz/IDOR checks, mandatory negative tests. |
-| **[`peer`](./peer/SKILL.md)** | Peer Reviewer | Diff-first code review, bug/regression spot checks, classified findings (Blocker/Warning/Nit). |
+| **[`peer`](./peer/SKILL.md)** | Peer Reviewer | Diff-first code review, catches monolith bloat, hardcoded values, code duplication, and regressions. |
 | **[`skill-feedback`](./skill-feedback/SKILL.md)** | Skill Refinement | Evidence-based skill improvements, applied only with explicit user approval. |
 
 ---
