@@ -11,6 +11,7 @@ Initialize the token-lean `work/` directory workflow for a new project, or migra
 
 1. **Bootstrap New Project Workflow**:
    - Check if `work/` exists. If not, create:
+     - `AGENTS.md`: Universal repository-level rules forcing all agents to use the workflow gate.
      - `work/INDEX.md`: Global active work directory.
      - `work/TASK_TEMPLATE.md`: Reusable contract template for subtasks.
      - `work/work-001-<slug>/`: Initial work package containing:

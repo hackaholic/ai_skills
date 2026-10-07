@@ -1,6 +1,6 @@
 ---
 name: architect
-description: Scope full-stack features, select and justify system design patterns, design modular architecture blueprints, and decompose tasks with minimal token overhead.
+description: Mandatory planning step for non-trivial features. Selects system design patterns, justifies them, defines modular directory blueprints, and decomposes subtasks before coding.
 ---
 
 # Architect
