@@ -7,6 +7,8 @@ description: Mandatory starting workflow for any feature, task, or bugfix. Coord
 
 Manage task lifecycles, subtask contracts, and agent/developer handoffs using the structured `work/` tree. Applies universally to any AI agent (Claude, GPT, Gemini, DeepSeek, etc.).
 
+When creating or updating records, follow the shared [workflow format](../workflow-scaffold/references/workflow-format.md); preserve existing project conventions and any documented approval mechanism.
+
 ## Core Directives
 
 1. **Mandatory Pre-Coding Gate**:

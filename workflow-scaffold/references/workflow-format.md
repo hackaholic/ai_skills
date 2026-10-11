@@ -1,0 +1,11 @@
+# Workflow format compatibility
+
+Keep the existing work/ tree and Markdown filenames. Apply these conventions to new records or the specific task being edited; do not mass-migrate existing projects.
+
+- Task IDs (for example 1.9.2) remain stable when titles, owners or statuses change. Use the same ID in the checklist, contract heading, and optional **Task ID:** field. Existing records without the field remain valid; never renumber them automatically.
+- Task contract **Owner:** accepts any agent/person name. Checklist owner labels are summaries, not a fixed set of allowed agents.
+- In the Markdown workflow, tasks.md sections define task state: Pending, In Progress, Blocked, Completed. Completed entries are checked; other entries are unchecked. Mirror status in the linked contract when transitioning. A blocked child does not automatically make the entire work Blocked.
+- INDEX.md records whole-work status. coordination.md summarizes the current handoff using Current Owner, Status, Active Task and optional Next Action; it does not override every task's status. Preserve existing equivalent bold-field layouts. Report conflicts rather than silently rewriting files or assuming missing data means no blockers.
+- Depends on lists only machine-readable prerequisite task IDs (comma-separated, e.g. 18.2, 18.3) or relative markdown links to contained task contract files (never trailing periods). Place narrative explanations, infrastructure prerequisites, or non-task prerequisites under Dependency context. Blocked by identifies current unmet prerequisites; Blocker reason and Next action explain the wait. Use None only when confirmed absent (no trailing dot); use Unknown when not established. Existing prose remains valid and must not be converted into inferred dependency edges without evidence.
+- Completion of a prerequisite makes a dependent task eligible for reassessment, not automatically In Progress or Completed. Record actual pickup and handoff evidence.
+- A project may already use a documented review/approval service such as workflow.json. Follow that project's transition mechanism and source-of-truth rules; do not fabricate approval or edit managed lifecycle metadata directly. Do not introduce JSON, a database or a new review state machine into projects that use only this Markdown scaffold.

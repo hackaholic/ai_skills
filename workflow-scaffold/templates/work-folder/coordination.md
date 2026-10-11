@@ -7,6 +7,7 @@ This file is the work-local coordination entry point. The work folder is the sou
 - Current Owner: <agent/person/unassigned>
 - Status: <Active / Blocked / Returned / Ready for Review>
 - Active Task: <None / Link to tasks/task-XXX.md>
+- Next Action: <None / concrete next action and responsible agent/person>
 
 ## Return protocol
 

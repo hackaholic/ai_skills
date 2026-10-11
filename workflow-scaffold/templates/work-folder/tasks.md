@@ -8,6 +8,10 @@
 
 - [ ] <NNN>.2 <Second task title>
 
+## Blocked
+
+None.
+
 ## Completed
 
 None.

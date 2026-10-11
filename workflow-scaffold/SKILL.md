@@ -21,7 +21,7 @@ Initialize the token-lean `work/` directory workflow for a new project, or migra
        - `decisions.md`: Architecture Decision Records (ADRs).
        - `notes.md`: Execution evidence and test logs.
        - `tasks/`: Directory for atomic subtask contracts.
-   - Use templates from [`templates/`](templates/).
+   - Use templates from [`templates/`](templates/) and preserve the backward-compatible [workflow format](references/workflow-format.md).
 
 2. **Migrate Existing Project to `work/`**:
    - Scan existing task sources: `README.md`, `TODO.md`, `docs/`, or open issues.

@@ -1,5 +1,6 @@
 # Task <work-id>.<task-id> — <short title>
 
+**Task ID:** <work-id>.<task-id>
 **Owner:** <agent/person>
 **Status:** Pending
 **Work item:** <Work NNN>
@@ -19,8 +20,14 @@ Relevant architecture, API specifications, and design decisions. Link only docs 
 
 ## Dependencies and relevant files
 
-- Depends on:
+- Depends on: None
+- Dependency context: <Narrative explanation, infrastructure prerequisites, or non-task prerequisites>
+- Blocked by: None
+- Blocker reason: None
+- Next action: None
 - Inspect/edit:
+
+> **Guidance for `Depends on:`**: Use only `None`, comma-separated task IDs (e.g. `18.2, 18.3`), or markdown links to contained task contract files (e.g. `[18.2](tasks/task-002.md)`). Do not add trailing punctuation (periods) or narrative prose here; place any explanatory context or infrastructure requirements under `Dependency context:`.
 
 ## Test cases (define before implementation)
 
