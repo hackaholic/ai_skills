@@ -166,3 +166,38 @@ cp -r * ~/.gemini/antigravity/skills/
 mkdir -p ~/.codex/skills
 cp -r * ~/.codex/skills/
 ```
+
+---
+
+## AI Skills Optimization Framework (`ai_skills_opt`)
+
+An agent-independent engineering optimization layer extending the skills repository with deterministic runtime profiles, persistent SQLite shared memory, context freshness validation, unified agent adapters (`gemini`, `codex`, `bob`), and an isolated benchmarking harness.
+
+### Framework Features
+
+- **Runtime Configuration & Profiles**: Declarative `config.yaml` supporting `minimal`, `standard`, `full`, and `benchmark` profiles.
+- **Persistent Offline Code Intelligence**: Programmatic wrapper around `codebase-index` with profile-bounded token budgets.
+- **Embedded Shared Memory**: Local SQLite database with FTS5 lexical full-text search for cross-agent findings (`VERIFIED`, `HYPOTHESIS`, `STALE`, `INVALIDATED`).
+- **Context Freshness Validation**: Automated staleness detection based on file modification times and git hashes to eliminate hallucinated context.
+- **Multi-Agent Adapters**: Unified execution interface for Gemini, Codex, and Bob (with graceful offline fallback).
+- **Contamination-Free Benchmarks**: Workspace isolation manager ensuring zero leakage across benchmark evaluation runs.
+
+### CLI Usage
+
+```bash
+# Diagnostic health check
+python3 -m ai_skills_opt doctor
+
+# Inspect active profile configuration
+python3 -m ai_skills_opt config show --profile standard
+python3 -m ai_skills_opt config show --profile minimal --format json
+
+# Run benchmark evaluations across profiles
+python3 -m ai_skills_opt benchmark --profiles minimal,standard,full
+```
+
+### Running Tests
+
+```bash
+python3 -m unittest discover tests
+```

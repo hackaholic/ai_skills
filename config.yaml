@@ -1,0 +1,61 @@
+version: "1.0"
+
+# Default base configuration
+code_intelligence:
+  enabled: true
+  engine: "codebase-index"
+  cache_dir: ".claude/cache/codebase-index"
+  offline_only: true
+  auto_update: true
+  max_tokens_per_query: 1500
+
+shared_memory:
+  enabled: true
+  db_path: ".ai_skills/memory.sqlite"
+  fts_enabled: true
+  embedding_enabled: false
+  freshness_check: true
+  stale_threshold_seconds: 86400
+
+agent_adapters:
+  default_agent: "gemini"
+  supported:
+    - "gemini"
+    - "codex"
+    - "bob"
+  bob:
+    execution_mode: "fallback" # fallback or native if installed
+
+benchmarks:
+  isolation_mode: "worktree"
+  results_dir: ".ai_skills/benchmark_results"
+
+# Profile overrides applied on top of the base configuration
+profiles:
+  minimal:
+    code_intelligence:
+      max_tokens_per_query: 500
+    shared_memory:
+      fts_enabled: false
+      embedding_enabled: false
+
+  standard:
+    code_intelligence:
+      max_tokens_per_query: 1500
+    shared_memory:
+      fts_enabled: true
+
+  full:
+    code_intelligence:
+      max_tokens_per_query: 4000
+    shared_memory:
+      fts_enabled: true
+      embedding_enabled: true
+
+  benchmark:
+    code_intelligence:
+      max_tokens_per_query: 1000
+    shared_memory:
+      freshness_check: true
+    benchmarks:
+      isolation_mode: "worktree"

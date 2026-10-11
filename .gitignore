@@ -27,3 +27,6 @@ scratch/
 *.sqlite-shm
 *.sqlite-wal
 
+
+# Optimization framework local memory and scratch cache
+.ai_skills/

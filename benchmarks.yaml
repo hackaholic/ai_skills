@@ -1,0 +1,22 @@
+version: "1.0"
+tasks:
+  - id: "bench-01-symbol-nav"
+    name: "Symbol Navigation"
+    prompt: "Locate definition of build_parser and return its enclosing file."
+    expected_keywords:
+      - "build_parser"
+    category: "code_intelligence"
+
+  - id: "bench-02-refs-impact"
+    name: "Reference and Impact Walk"
+    prompt: "Find all references to OptimizationConfig and identify downstream usages."
+    expected_keywords:
+      - "OptimizationConfig"
+    category: "code_intelligence"
+
+  - id: "bench-03-memory-retrieval"
+    name: "Shared Memory Retrieval"
+    prompt: "Retrieve finding for architectural decision regarding SQLite storage."
+    expected_keywords:
+      - "SQLite"
+    category: "shared_memory"
