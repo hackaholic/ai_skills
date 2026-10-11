@@ -10,6 +10,7 @@ Design and implement resilient, performant, and strictly modular backend service
 ## Core Directives
 
 1. **Layered Architecture & Separation of Concerns**:
+   - Use [code-intelligence](../code-intelligence/SKILL.md) (`symbol`, `refs`) to discover existing backend interfaces, models, and service dependencies before writing new logic.
    - Enforce clean separation across the backend stack:
      - **Routes / Controllers**: Handle HTTP semantics, validate incoming request bodies, and serialize responses. Zero business or database logic here.
      - **Services**: Contain pure business logic, calculations, and domain orchestrations.

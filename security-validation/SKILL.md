@@ -10,7 +10,7 @@ Identify attack surfaces, validate security controls, and prevent vulnerabilitie
 ## Core Directives
 
 1. **Threat Surface Triage**:
-   - Trace untrusted inputs from entry point (HTTP, webhook, file upload, CLI) to sensitive sinks (database, shell, filesystem, HTML).
+   - Trace untrusted inputs from entry point (HTTP, webhook, file upload, CLI) to sensitive sinks (database, shell, filesystem, HTML). Use [code-intelligence](../code-intelligence/SKILL.md) (`refs`, `impact`) to inspect call paths without reading entire files.
    - Evaluate authentication, session management, and CSRF protection.
    - Enforce object-level and tenant-level authorization (prevent IDOR/BOLA). Never rely on client-provided IDs without server ownership checks.
    - For detailed API and database standards, consult [API Security Standard](references/api-standard.md).

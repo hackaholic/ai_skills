@@ -31,6 +31,7 @@ Plan full-stack features, select and justify system design patterns, and define 
      - `utils/` or `common/`: Reusable helpers, templates, base classes, and middleware.
 
 3. **System Decomposition & Domain Flow**:
+   - Before decomposing, use [code-intelligence](../code-intelligence/SKILL.md) (`architecture`, `symbol`, `impact`) to inspect existing module boundaries and caller dependencies.
    - Break feature into independent layers:
      - **UI/Client**: Route, layout, components (delegate details to [ui-designer](../ui-designer/SKILL.md)).
      - **API & Data**: Endpoints, schemas, storage (delegate details to [backend-expert](../backend-expert/SKILL.md)).

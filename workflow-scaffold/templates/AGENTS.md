@@ -15,6 +15,7 @@ These rules apply universally to any AI agent (Claude, GPT, Gemini, DeepSeek, Co
 
 ## 2. Engineering Standards
 
+- **Index-First Navigation**: Do not read entire source files to find definitions or call sites. Use `$code-intelligence` (`codebase-index symbol <Name>`, `codebase-index refs <Name>`) to locate targets and view only bounded lines. Refresh affected entries via `codebase-index update` after changes.
 - **Strict Anti-Monolith Rule**: Never write all logic in a single file. Separate routes/controllers, services, repositories/data access, models, and utilities into dedicated files (< 250 LOC typical).
 - **Zero Hardcoding**: Never hardcode URLs, ports, magic numbers, or credentials. Load all configuration from environment variables and a centralized configuration file (YAML default, with typed schema validation at startup).
 - **Code Reusability & DRY**: Extract shared operations into reusable utilities, base classes, and templates rather than copy-pasting code.

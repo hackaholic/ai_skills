@@ -21,6 +21,8 @@ Initialize the token-lean `work/` directory workflow for a new project, or migra
        - `decisions.md`: Architecture Decision Records (ADRs).
        - `notes.md`: Execution evidence and test logs.
        - `tasks/`: Directory for atomic subtask contracts.
+   - Configure `.gitignore` to exclude `.claude/cache/`, `*.sqlite-shm`, and `*.sqlite-wal`.
+   - If `codebase-index` is available, initialize index via `codebase-index index` (or [code-intelligence](../code-intelligence/SKILL.md)); do not commit index files to Git.
    - Use templates from [`templates/`](templates/) and preserve the backward-compatible [workflow format](references/workflow-format.md).
 
 2. **Migrate Existing Project to `work/`**:

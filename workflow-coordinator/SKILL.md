@@ -25,6 +25,7 @@ When creating or updating records, follow the shared [workflow format](../workfl
    - Update `work-NNN/coordination.md`: set current owner and mark status **Active**.
    - In `work-NNN/tasks.md`: move the task item from `Pending` to `In Progress`.
    - Follow the contract's **Pickup checklist**: reuse completed migrations, assets, and setups; never repeat completed work.
+   - Ensure repository index freshness via [code-intelligence](../code-intelligence/SKILL.md) (`codebase-index update`). Do not rebuild the index repeatedly for each subtask, and never copy raw index databases or graph dumps into work documents.
 
 4. **Subtask Contract Creation**:
    - For multi-session, complex, or cross-agent tasks, create a contract under `work-NNN/tasks/task-XXX-<slug>.md` using `work/TASK_TEMPLATE.md`.

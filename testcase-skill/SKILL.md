@@ -9,7 +9,8 @@ Design and execute traceable, deterministic test cases. Focus on real behavioral
 
 ## Core Directives
 
-1. **Test Pyramid & Isolation**:
+1. **Test Pyramid & Target Discovery**:
+   - Use [code-intelligence](../code-intelligence/SKILL.md) (`symbol`, `refs`) to pinpoint the implementation under test and locate existing test fixtures or callers before designing cases.
    - Choose the lowest test level that reliably validates the behavior (Unit > Integration > E2E).
    - Test against real integration boundaries (e.g. real test DB container or transactional rollback) for query safety and authorization. Do not mock away the security or database layer.
    - Use deterministic, isolated fixtures. Never depend on live production data or shared global state.

@@ -15,6 +15,7 @@ Perform rigorous, diff-focused code reviews. Prioritize architectural modularity
    - Check compliance against acceptance criteria and architectural contracts.
 
 2. **Full-Stack Evaluation Checklist**:
+   - **Blast Radius & Impact**: Run `codebase-index diff-impact` (via [code-intelligence](../code-intelligence/SKILL.md)) or check callers (`refs`) of modified symbols to catch unintended downstream regressions.
    - **Modularity (Anti-Monolith)**: Flag any file exceeding ~250–300 lines that mixes concerns (e.g., routing + business logic + direct SQL queries in one file).
    - **Configuration Discipline**: Flag any hardcoded URLs, ports, secrets, or magic constants that should be in the config module / environment variables.
    - **Reusability & DRY**: Flag copy-pasted code that duplicates existing functions or should be extracted into a shared utility.

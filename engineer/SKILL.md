@@ -32,10 +32,12 @@ Execute implementation tasks adhering to modular design standards. Prohibit mono
    - Extract common operations into reusable utilities or base abstractions (e.g., standardized HTTP client with retries, database connection pool wrapper, uniform error responder).
    - Design functions with clear inputs and outputs so they can be imported and composed cleanly.
 
-4. **Surgical, Targeted Modifications**:
+4. **Surgical, Targeted Modifications & Index Refresh**:
+   - Follow the index-first cycle via [code-intelligence](../code-intelligence/SKILL.md): locate target symbol/callers (`symbol`, `refs`) -> view bounded lines -> edit -> verify.
    - Make the smallest coherent change that satisfies the acceptance criteria.
    - Never regenerate or rewrite entire files when updating functions or components; use targeted replacements/diffs.
    - Preserve existing code comments, docstrings, formatting, and unrelated logic.
+   - After completing edits, refresh affected index entries via `codebase-index update`.
 
 5. **Token-Lean Output Format**:
    Deliver:
